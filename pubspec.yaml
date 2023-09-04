@@ -23,4 +23,5 @@ flutter:
 
   assets:
     - assets/
+    - assets/services/
     - shorebird.yaml
