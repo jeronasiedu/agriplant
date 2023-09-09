@@ -1,4 +1,4 @@
-import 'package:agriplant/pages/home_page.dart';
+import 'package:agriplant/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.mulishTextTheme(),
       ),
-      home: const HomePage(),
+      home: const OnboardingPage(),
     );
   }
 }

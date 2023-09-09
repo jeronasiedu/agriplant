@@ -32,7 +32,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     readMoreGestureRecognizer.dispose();
   }
