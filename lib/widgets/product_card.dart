@@ -14,7 +14,8 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => ProductDetailsPage(product: product)),
+          MaterialPageRoute(
+              builder: (_) => ProductDetailsPage(product: product)),
         );
       },
       child: Card(
@@ -67,8 +68,12 @@ class ProductCard extends StatelessWidget {
                       RichText(
                         text: TextSpan(
                           children: [
-                            TextSpan(text: "\$${product.price}", style: Theme.of(context).textTheme.bodyLarge),
-                            TextSpan(text: "/${product.unit}", style: Theme.of(context).textTheme.bodySmall),
+                            TextSpan(
+                                text: "\$${product.price}",
+                                style: Theme.of(context).textTheme.bodyLarge),
+                            TextSpan(
+                                text: "/${product.unit}",
+                                style: Theme.of(context).textTheme.bodySmall),
                           ],
                         ),
                       ),

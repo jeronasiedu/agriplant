@@ -1,10 +1,10 @@
 name: agriplant
 description: Agriculture plant app
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: ">=3.0.5 <4.0.0"
 
 dependencies:
   flutter:
@@ -12,7 +12,9 @@ dependencies:
   flutter_iconly: ^1.0.2
   google_fonts: ^5.1.0
   badges: ^3.1.1
-  
+  timelines: ^0.1.0
+  easy_stepper: ^0.7.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

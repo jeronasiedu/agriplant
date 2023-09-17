@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:agriplant/models/product.dart';
 import 'package:flutter/material.dart';
@@ -114,18 +115,24 @@ class CartItem extends StatelessWidget {
                                 false,
                                 true,
                               ],
-                              children: const [
-                                Icon(
+                              children: [
+                                const Icon(
                                   Icons.remove,
                                   size: 20,
                                 ),
-                                Text("2"),
-                                Icon(
+                                Text("${Random().nextInt(5) + 1}"),
+                                const Icon(
                                   Icons.add,
                                   size: 20,
                                 ),
                               ],
-                              onPressed: (int index) {},
+                              onPressed: (int index) {
+                                if (index == 0) {
+                                  // decrease quantity
+                                } else if (index == 2) {
+                                  // increase quantity
+                                }
+                              },
                             ),
                           ),
                         ],
