@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:agriplant/models/order.dart';
-import 'package:agriplant/pages/order_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+
+import 'order_product.dart';
 
 class OrderItem extends StatelessWidget {
   const OrderItem({super.key, required this.order, this.visibleProducts = 2});
@@ -54,74 +53,35 @@ class OrderItem extends StatelessWidget {
             const SizedBox(height: 20),
             ...List.generate(products.length, (index) {
               final product = products[index];
-              return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (_) => OrderDetailsPage(order: order)),
-                  );
-                },
-                behavior: HitTestBehavior.opaque,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 90,
-                      width: 90,
-                      margin: const EdgeInsets.only(right: 10, bottom: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(product.image),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            product.name,
-                            style: theme.textTheme.titleMedium
-                                ?.copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            product.description,
-                            style: Theme.of(context).textTheme.bodySmall,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "\$${product.price}",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                              Text("Qty: ${Random().nextInt(4) + 1}")
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              );
+              return OrderProduct(order: order, product: product);
             }),
             if (order.products.length > 1) const SizedBox(height: 10),
             if (order.products.length > 1)
               Center(
                   child: TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    showDragHandle: true,
+                    isScrollControlled: true,
+                    builder: (context) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.background,
+                        ),
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        child: ListView.builder(
+                          padding: const EdgeInsets.all(14),
+                          itemCount: order.products.length,
+                          itemBuilder: (context, index) {
+                            final product = order.products[index];
+                            return OrderProduct(order: order, product: product);
+                          },
+                        ),
+                      );
+                    },
+                  );
+                },
                 icon: const Icon(IconlyBold.arrowRight),
                 label: const Text("View all"),
               ))

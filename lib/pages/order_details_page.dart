@@ -55,9 +55,7 @@ class OrderDetailsPage extends StatelessWidget {
                 topTitle: true,
               );
             }),
-            onStepReached: (index) {
-              print(index);
-            },
+            onStepReached: (index) {},
           ),
           const SizedBox(height: 20),
           Card(

@@ -83,7 +83,8 @@ class CartItem extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(cartItem.name, style: Theme.of(context).textTheme.titleMedium),
+                      Text(cartItem.name,
+                          style: Theme.of(context).textTheme.titleMedium),
                       const SizedBox(height: 2),
                       Text(
                         cartItem.description,
@@ -97,7 +98,10 @@ class CartItem extends StatelessWidget {
                         children: [
                           Text(
                             "\$${cartItem.price}",
-                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
                                   color: Theme.of(context).colorScheme.primary,
                                 ),
                           ),
@@ -109,7 +113,8 @@ class CartItem extends StatelessWidget {
                                 minHeight: 30,
                                 minWidth: 30,
                               ),
-                              selectedColor: Theme.of(context).colorScheme.primary,
+                              selectedColor:
+                                  Theme.of(context).colorScheme.primary,
                               isSelected: const [
                                 true,
                                 false,
@@ -146,6 +151,5 @@ class CartItem extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

@@ -20,7 +20,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     readMoreGestureRecognizer = TapGestureRecognizer()
       ..onTap = () {
@@ -80,8 +79,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: "\$${widget.product.price}", style: Theme.of(context).textTheme.titleLarge),
-                    TextSpan(text: "/${widget.product.unit}", style: Theme.of(context).textTheme.bodySmall),
+                    TextSpan(
+                        text: "\$${widget.product.price}",
+                        style: Theme.of(context).textTheme.titleLarge),
+                    TextSpan(
+                        text: "/${widget.product.unit}",
+                        style: Theme.of(context).textTheme.bodySmall),
                   ],
                 ),
               )
@@ -131,7 +134,11 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             ],
           ),
           const SizedBox(height: 20),
-          Text("Description", style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold)),
+          Text("Description",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(fontWeight: FontWeight.bold)),
           const SizedBox(height: 5),
           RichText(
             text: TextSpan(
@@ -155,7 +162,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           const SizedBox(height: 20),
           Text(
             "Similar Products",
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           SizedBox(
@@ -184,7 +194,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             ),
           ),
           const SizedBox(height: 20),
-          FilledButton.icon(onPressed: () {}, icon: const Icon(IconlyLight.bag2), label: const Text("Add to cart"))
+          FilledButton.icon(
+              onPressed: () {},
+              icon: const Icon(IconlyLight.bag2),
+              label: const Text("Add to cart"))
         ],
       ),
     );
